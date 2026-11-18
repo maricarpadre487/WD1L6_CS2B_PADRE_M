@@ -1,0 +1,180 @@
+/* style.css - my own design on top of bootstrap */
+
+/* my colors, saved here so I can change them in one place */
+:root {
+  --brand: #1f3a5f;
+  --brand-dark: #152944;
+  --brand-light: #4a9eff;
+}
+
+/* ---------- small helper classes (bootstrap doesn't have my colors) ---------- */
+.bg-brand {
+  background-color: var(--brand);
+}
+
+.btn-brand {
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: white;
+}
+
+.btn-brand:hover {
+  background-color: var(--brand-dark);
+  border-color: var(--brand-dark);
+  color: white;
+}
+
+/* ---------- general ---------- */
+/* the navbar is fixed on top, so this keeps the section titles from hiding behind it */
+section {
+  scroll-margin-top: 70px;
+}
+
+.section-title {
+  font-weight: bold;
+  color: var(--brand);
+}
+
+/* title color is too dark on dark mode, so use the light blue instead */
+[data-bs-theme="dark"] .section-title {
+  color: var(--brand-light);
+}
+
+.section-intro {
+  max-width: 650px;
+}
+
+/* ---------- navbar ---------- */
+.navbar .nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 70px;
+  color: white;
+  background: linear-gradient(135deg, var(--brand) 0%, #2b5b8a 60%, var(--brand-light) 100%);
+}
+
+.hero-hello {
+  font-size: 1.3rem;
+  margin-bottom: 0;
+}
+
+.hero-intro {
+  max-width: 600px;
+}
+
+/* the blinking | after the typed words */
+.cursor {
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- about ---------- */
+.profile-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 6px solid var(--brand);
+}
+
+.motto-box {
+  padding: 20px 25px;
+  border-left: 6px solid var(--brand-light);
+  border-radius: 6px;
+  background-color: var(--bs-tertiary-bg);
+}
+
+.motto-box blockquote p {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+/* ---------- philosophy ---------- */
+.philosophy-card {
+  height: 100%;
+  border-top: 4px solid var(--brand-light);
+  transition: transform 0.2s;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-5px);
+}
+
+/* color circle + name */
+.swatch {
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.swatch-circle {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 6px;
+  border-radius: 50%;
+  border: 2px solid var(--bs-border-color);
+}
+
+/* ---------- projects ---------- */
+.project-card {
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* all screenshots will have the same height */
+.project-image {
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  cursor: pointer;
+}
+
+/* ---------- contact ---------- */
+.contact-card a {
+  text-decoration: none;
+}
+
+/* ---------- back to top button ---------- */
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: none; /* hidden at first, js shows it */
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 576px) {
+  .profile-photo {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* title color inside the philosophy cards */
+.text-brand-title {
+  color: var(--brand);
+}
+
+[data-bs-theme="dark"] .text-brand-title {
+  color: var(--brand-light);
+}
